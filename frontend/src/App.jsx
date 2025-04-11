@@ -45,10 +45,11 @@ import DailyProgress from "./pages/patient/DailyProgress";
 
 // Medical Staff Pages
 import DoctorDashboard from "./pages/doctor/DoctorDashboard";
+
 import Appointments from "./pages/doctor/Appointments";
 import DoctorAddAppointment from "./pages/doctor/DoctorAddAppointment";
 import PatientConsulatation from "./pages/doctor/PatientConsultation"
-
+import ViewConsultation from "./pages/doctor/ViewConsultation";
 import NurseDashboard from "./pages/nurse/NurseDashboard";
 import PatientRecords from "./pages/nurse/PatientRecords";
 import PatientConsultations from "./pages/nurse/PatientConsultations"; // Add import for the new component
@@ -171,7 +172,7 @@ function App() {
             <Route path="/doctor" element={<DoctorDashboard />} />
             <Route path="/doctor/appointments" element={<Appointments />} />
             <Route path="/doctor/book-appointment" element={<DoctorAddAppointment />} />
-            
+            <Route path="/doctor/consultation/:id" element={<ViewConsultation />} />
           </Route>
           <Route element={<ProtectedRoute allowedRoles={["doctor","nurse"]} />}>
         

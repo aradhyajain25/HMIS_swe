@@ -9,7 +9,7 @@ const Appointments = () => {
     return Promise.resolve([
       { id: 1, patientName: "John Doe", timeSlot: "9:00 AM - 10:00 AM", isDone: true },
       { id: 2, patientName: "Jane Smith", timeSlot: "10:30 AM - 11:30 AM", isDone: false },
-      { id: 3, patientName: "Robert Johnson", timeSlot: "1:00 PM - 2:00 PM", isDone: false },
+      { id: 31, patientName: "Robert Johnson", timeSlot: "1:00 PM - 2:00 PM", isDone: false },
       { id: 4, patientName: "Emily Williams", timeSlot: "3:30 PM - 4:30 PM", isDone: false },
     ]);
   };
@@ -60,17 +60,18 @@ const Appointments = () => {
         </Link>
       </div>
       <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-4 text-gray-700 font-medium mb-4">
+        <div className="grid grid-cols-5 text-gray-700 font-medium mb-4">
           <div className="p-3">Appointment Id</div>
           <div className="p-3">Patient Name</div>
           <div className="p-3">Time</div>
           <div className="p-3">Done</div>
+          <div className="p-3">Actions</div>
         </div>
         
         {appointments.map((appointment) => (
           <div 
             key={appointment.id} 
-            className="grid grid-cols-4 mb-4 rounded-lg overflow-hidden bg-gray-800 text-white"
+            className="grid grid-cols-5 mb-4 rounded-lg overflow-hidden bg-gray-800 text-white"
           >
             <div className="p-4 text-center">AID{appointment.id}</div>
             <div className="p-4">{appointment.patientName}</div>
@@ -88,6 +89,14 @@ const Appointments = () => {
                   </svg>
                 )}
               </div>
+            </div>
+            <div className="p-4 flex justify-center">
+              <Link 
+                to={`/doctor/consultation/${appointment.id}`} 
+                className="px-3 py-1 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+              >
+                View
+              </Link>
             </div>
           </div>
         ))}
